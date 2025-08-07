@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.3)), 
+                url('generated-images/romance-style/luau-bay-overview.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero .tagline {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero .motto {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(26, 83, 92, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s;
+}
+
+nav.scrolled {
+    background: rgba(26, 83, 92, 1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #ffd93d;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+}
+
+nav a:hover {
+    color: #ff6b6b;
+}
+
+/* Main Content */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    background: white;
+    margin: 2rem 0;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #1a535c;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+}
+
+h2::after {
+    content: '🌺';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    font-size: 1.5rem;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.about-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    transition: transform 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Characters Section */
+.characters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.character-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f7f7f7;
+    border-radius: 15px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.character-card:hover {
+    background: linear-gradient(135deg, #ffd93d 0%, #ff6b6b 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+.character-avatar {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, #4ecdc4 0%, #1a535c 100%);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.character-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+
+.character-avatar.auntie-mahina img {
+    object-position: center center;
+    transform: scale(1.2);
+    object-fit: cover;
+}
+
+/* Locations Section */
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.location-card {
+    position: relative;
+    background: linear-gradient(135deg, #4ecdc4 0%, #1a535c 100%);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.3s;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.location-card.sunrise-sips {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('generated-images/romance-style/sunrise-sips-cafe.jpg');
+}
+
+.location-card.sirens-pool {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('generated-images/romance-style/sirens-pool.jpg');
+}
+
+.location-card.driftwood-inn {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('generated-images/romance-style/driftwood-inn.jpg');
+}
+
+.location-card.three-lovers-cave {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('generated-images/romance-style/three-lovers-cave.jpg');
+}
+
+.location-card.floating-gardens {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('generated-images/romance-style/floating-gardens.jpg');
+}
+
+.location-card.blessing-tree {
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('generated-images/romance-style/blessing-tree.jpg');
+}
+
+.location-card:hover {
+    transform: scale(1.05);
+}
+
+.location-info {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 1.5rem;
+    width: 100%;
+}
+
+.location-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Events Section */
+.events-timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.events-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, #ffd93d 0%, #ff6b6b 100%);
+}
+
+.event-item {
+    position: relative;
+    margin-bottom: 2rem;
+    background: #f7f7f7;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.event-item::before {
+    content: '🌴';
+    position: absolute;
+    left: -38px;
+    background: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.event-item h3 {
+    color: #1a535c;
+    margin-bottom: 0.5rem;
+}
+
+/* Romance Elements */
+.romance-section {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    margin: 3rem 0;
+}
+
+.romance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.romance-item {
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.romance-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Gallery Section */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.gallery-item {
+    aspect-ratio: 16/9;
+    background: linear-gradient(45deg, #4ecdc4, #1a535c);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item .gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover .gallery-caption {
+    transform: translateY(0);
+}
+
+/* Image loading states */
+.gallery-item.loading {
+    background: linear-gradient(45deg, #e0e0e0, #f0f0f0);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.gallery-item.error {
+    background: linear-gradient(45deg, #ffcdd2, #f8bbd0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d32f2f;
+    font-size: 0.9rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background: #1a535c;
+    color: white;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+footer h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.whale-animation {
+    font-size: 3rem;
+    animation: swim 10s linear infinite;
+}
+
+@keyframes swim {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero .tagline { font-size: 1.2rem; }
+    section { padding: 2rem 1.5rem; }
+    h2 { font-size: 2rem; }
+    
+    /* Gallery mobile fixes */
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .gallery-item {
+        max-width: 100%;
+        aspect-ratio: 4/3;
+    }
+    
+    /* Locations mobile fixes */
+    .locations-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .location-card {
+        height: 200px;
+        max-width: 100%;
+    }
+    
+    /* Disable hover effects on mobile */
+    .gallery-item:hover,
+    .location-card:hover {
+        transform: none;
+    }
+    
+    .gallery-item:hover img {
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1.5rem 1rem;
+        margin: 1rem 0;
+    }
+    
+    .gallery {
+        gap: 1rem;
+    }
+    
+    .gallery-item {
+        aspect-ratio: 1/1;
+    }
+    
+    .locations-grid {
+        gap: 1rem;
+    }
+    
+    .location-card {
+        height: 180px;
+    }
+    
+    .location-info {
+        padding: 1rem;
+    }
+    
+    .location-info h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .location-info p {
+        font-size: 0.9rem;
+    }
+}
