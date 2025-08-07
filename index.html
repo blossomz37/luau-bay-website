@@ -822,6 +822,12 @@
             item.className = 'gallery-item loading';
             item.setAttribute('data-image-index', index);
             
+            // Add loading indicator
+            const loadingText = document.createElement('div');
+            loadingText.className = 'loading-indicator';
+            loadingText.innerHTML = `<span>Loading ${imageData.title}...</span>`;
+            item.appendChild(loadingText);
+            
             const img = document.createElement('img');
             img.src = imageData.src;
             img.alt = imageData.alt;
@@ -831,19 +837,20 @@
             caption.className = 'gallery-caption';
             caption.textContent = imageData.title;
             
-            // Handle image loading with timeout
+            // Handle image loading with extended timeout for slower connections
             let loadTimeout = setTimeout(() => {
                 if (!img.complete) {
-                    console.warn(`Image ${index + 1} (${imageData.src}) taking longer than expected to load`);
+                    console.error(`Image ${index + 1} (${imageData.src}) failed to load within timeout`);
                     item.classList.remove('loading');
                     item.classList.add('error');
-                    item.innerHTML = `<span>Slow loading: ${imageData.title}</span>`;
+                    item.innerHTML = `<span>Unable to load: ${imageData.title}</span>`;
                 }
-            }, 30000); // 30 second timeout
+            }, 60000); // 60 second timeout for slower connections
             
             img.onload = function() {
                 clearTimeout(loadTimeout);
                 item.classList.remove('loading');
+                item.innerHTML = ''; // Clear loading indicator
                 item.appendChild(img);
                 item.appendChild(caption);
                 console.log(`Successfully loaded image ${index + 1}: ${imageData.title}`);

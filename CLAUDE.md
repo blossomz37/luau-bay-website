@@ -25,9 +25,10 @@ The website is a fully self-contained HTML file featuring:
 
 #### JavaScript Features
 - **Scroll Navigation**: Dynamic navbar changes and smooth scrolling
-- **Image Gallery System**: Lazy loading with error handling for generated images
+- **Image Gallery System**: Lazy loading with 30-second timeout and error handling
 - **Interactive Elements**: Character card animations and scroll-triggered animations
-- **Intersection Observer**: Performance-optimized scroll animations
+- **Intersection Observer**: Performance-optimized scroll animations with 0.1 threshold
+- **Gallery Loading**: Dynamic image creation with fallback error messages
 
 #### Content Sections
 1. **Hero Section**: Animated title with Hawaiian motto "E hoʻokahi ka puana"
@@ -54,6 +55,16 @@ All stored in `generated-images/romance-style/`:
 ## Development Context
 
 This is a static website with no build process, package managers, or external dependencies. The entire application is contained within a single HTML file with embedded styles and scripts.
+
+### Development Commands
+- **Local Preview**: Simply open `index.html` in any modern web browser
+- **No Build Process**: No npm, webpack, or other build tools required
+- **Live Deployment**: Project is hosted via GitHub Pages at https://blossomz37.github.io/luau-bay-website/
+
+### File Architecture
+- **Single File Application**: All HTML, CSS (894 lines), and JavaScript are embedded in `index.html`
+- **Image Optimization**: JPEG versions provide 75-77% size reduction from original PNGs
+- **Asset Organization**: Generated images stored in `generated-images/romance-style/` with both JPG and PNG formats
 
 ### Image Loading Strategy
 - Uses lazy loading (`loading="lazy"`) for performance
