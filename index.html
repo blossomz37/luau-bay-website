@@ -735,9 +735,10 @@
         ];
 
         // Function to create gallery items
-        function createGalleryItem(imageData) {
+        function createGalleryItem(imageData, index) {
             const item = document.createElement('div');
             item.className = 'gallery-item loading';
+            item.setAttribute('data-image-index', index);
             
             const img = document.createElement('img');
             img.src = imageData.src;
@@ -748,17 +749,30 @@
             caption.className = 'gallery-caption';
             caption.textContent = imageData.title;
             
-            // Handle image loading
+            // Handle image loading with timeout
+            let loadTimeout = setTimeout(() => {
+                if (!img.complete) {
+                    console.warn(`Image ${index + 1} (${imageData.src}) taking too long to load`);
+                    item.classList.remove('loading');
+                    item.classList.add('error');
+                    item.innerHTML = `<span>Image loading timeout: ${imageData.title}</span>`;
+                }
+            }, 10000); // 10 second timeout
+            
             img.onload = function() {
+                clearTimeout(loadTimeout);
                 item.classList.remove('loading');
                 item.appendChild(img);
                 item.appendChild(caption);
+                console.log(`Successfully loaded image ${index + 1}: ${imageData.title}`);
             };
             
             img.onerror = function() {
+                clearTimeout(loadTimeout);
                 item.classList.remove('loading');
                 item.classList.add('error');
-                item.innerHTML = '<span>Failed to load image</span>';
+                item.innerHTML = `<span>Failed to load: ${imageData.title}<br><small>${imageData.src}</small></span>`;
+                console.error(`Failed to load image ${index + 1}: ${imageData.src}`);
             };
             
             return item;
@@ -767,8 +781,9 @@
         // Load gallery images
         const gallery = document.getElementById('imageGallery');
         if (gallery) {
-            galleryData.forEach(imageData => {
-                gallery.appendChild(createGalleryItem(imageData));
+            console.log('Loading gallery with', galleryData.length, 'images');
+            galleryData.forEach((imageData, index) => {
+                gallery.appendChild(createGalleryItem(imageData, index));
             });
         }
 
