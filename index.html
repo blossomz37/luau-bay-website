@@ -581,7 +581,7 @@
                 </div>
                 <div class="character-card">
                     <div class="character-avatar">
-                        <img src="generated-images/romance-style/Characters - The Beach Boys.jpg'" alt="The Beach Boys" onerror="this.style.display='none'; this.parentElement.innerHTML='🎸';">
+                        <img src="generated-images/romance-style/Characters - The Beach Boys.jpg" alt="The Beach Boys" onerror="this.style.display='none'; this.parentElement.innerHTML='🎸';">
                     </div>
                     <h3>The Beach Boys</h3>
                     <p><strong>Kai & Pono</strong></p>
@@ -589,7 +589,7 @@
                 </div>
                 <div class="character-card">
                     <div class="character-avatar">
-                        <img src="generated-images/romance-style/Character - Coral.jpg'" alt="Coral" onerror="this.style.display='none'; this.parentElement.innerHTML='📱';">
+                        <img src="generated-images/romance-style/Character - Coral.jpg" alt="Coral" onerror="this.style.display='none'; this.parentElement.innerHTML='📱';">
                     </div>
                     <h3>Coral</h3>
                     <p><strong>The Town Connector</strong></p>
@@ -834,12 +834,12 @@
             // Handle image loading with timeout
             let loadTimeout = setTimeout(() => {
                 if (!img.complete) {
-                    console.warn(`Image ${index + 1} (${imageData.src}) taking too long to load`);
+                    console.warn(`Image ${index + 1} (${imageData.src}) taking longer than expected to load`);
                     item.classList.remove('loading');
                     item.classList.add('error');
-                    item.innerHTML = `<span>Image loading timeout: ${imageData.title}</span>`;
+                    item.innerHTML = `<span>Slow loading: ${imageData.title}</span>`;
                 }
-            }, 10000); // 10 second timeout
+            }, 30000); // 30 second timeout
             
             img.onload = function() {
                 clearTimeout(loadTimeout);
@@ -866,11 +866,8 @@
             console.log('Loading gallery with', galleryData.length, 'images');
             console.log('Gallery image sources:', galleryData.map(img => img.src));
             galleryData.forEach((imageData, index) => {
-                // Add cache busting parameter
-                const cacheBustSrc = imageData.src + '?v=' + Date.now();
-                const imageDataWithCacheBust = { ...imageData, src: cacheBustSrc };
-                console.log(`Creating gallery item ${index + 1}: ${imageDataWithCacheBust.src}`);
-                gallery.appendChild(createGalleryItem(imageDataWithCacheBust, index));
+                console.log(`Creating gallery item ${index + 1}: ${imageData.src}`);
+                gallery.appendChild(createGalleryItem(imageData, index));
             });
         }
 
