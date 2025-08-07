@@ -207,9 +207,11 @@
         /* Locations Section */
         .locations-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: 2rem;
             margin-top: 2rem;
+            width: 100%;
+            max-width: 100%;
         }
         
         .location-card {
@@ -223,6 +225,9 @@
             transition: transform 0.3s;
             background-size: cover;
             background-position: center;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
         }
         
         .location-card.sunrise-sips {
@@ -454,8 +459,20 @@
                 aspect-ratio: 4/3;
             }
             
+            /* Locations mobile fixes */
+            .locations-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .location-card {
+                height: 200px;
+                max-width: 100%;
+            }
+            
             /* Disable hover effects on mobile */
-            .gallery-item:hover {
+            .gallery-item:hover,
+            .location-card:hover {
                 transform: none;
             }
             
@@ -480,6 +497,27 @@
             
             .gallery-item {
                 aspect-ratio: 1/1;
+            }
+            
+            .locations-grid {
+                gap: 1rem;
+            }
+            
+            .location-card {
+                height: 180px;
+            }
+            
+            .location-info {
+                padding: 1rem;
+            }
+            
+            .location-info h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .location-info p {
+                font-size: 0.9rem;
             }
         }
     </style>
