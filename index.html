@@ -864,8 +864,13 @@
         const gallery = document.getElementById('imageGallery');
         if (gallery) {
             console.log('Loading gallery with', galleryData.length, 'images');
+            console.log('Gallery image sources:', galleryData.map(img => img.src));
             galleryData.forEach((imageData, index) => {
-                gallery.appendChild(createGalleryItem(imageData, index));
+                // Add cache busting parameter
+                const cacheBustSrc = imageData.src + '?v=' + Date.now();
+                const imageDataWithCacheBust = { ...imageData, src: cacheBustSrc };
+                console.log(`Creating gallery item ${index + 1}: ${imageDataWithCacheBust.src}`);
+                gallery.appendChild(createGalleryItem(imageDataWithCacheBust, index));
             });
         }
 
