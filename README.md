@@ -4,7 +4,21 @@
 
 ## 🌴 Overview
 
-This is an educational FFA (Future Farmers of America) lab project - Lab 3: Poly Romance - Small Town Research & Development. The website showcases the fictional island setting of Lū'au Bay, a progressive community that celebrates diverse forms of love and connection.
+This is an educational FFA (Future Fiction Academy) lab project.
+
+Multi Context Protocol - Starter Projects, Lab 3
+Tools used:
+- Typing Mind
+- Plugins: Image Editor, Web Search, Firecrawl
+- MCP: Sequential Thinking, Notion
+
+Class Project: Polyamorous Romance - Small Town Research & Development
+- Research articles about American small towns.
+- Evaluate qualities that could be used to enhance the authenticity and planning.
+- Create a profile of a fictional small town with guided prompting.
+- Generate images for a static website.
+
+The website showcases the fictional island setting of Lū'au Bay, a progressive community that celebrates diverse forms of love and connection.
 
 **Live Site:** [https://blossomz37.github.io/luau-bay-website/](https://blossomz37.github.io/luau-bay-website/)
 
@@ -110,12 +124,6 @@ All artwork is AI-generated using DALL-E for educational purposes.
 ## 📄 License
 
 This project is licensed under the terms in the LICENSE file.
-
-## 🙏 Acknowledgments
-
-- FFA Education Program for project framework
-- AI image generation for visual content
-- Hawaiian culture for inspiration (used respectfully in fictional context)
 
 ---
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is the Lū'au Bay Website project - an educational FFA lab project focused on "Poly Romance - Small Town" research and development. The repository contains a comprehensive single-page website showcasing the fictional island setting of Lū'au Bay, complete with character profiles, locations, and romance-themed content.
+This is the Lū'au Bay Website project - an educational Future Fiction Academy (FFA) lab project focused on "Poly Romance - Small Town" research and development. The repository contains a comprehensive single-page website showcasing the fictional island setting of Lū'au Bay, complete with character profiles, locations, and romance-themed content.
 
 ## Project Structure
 
